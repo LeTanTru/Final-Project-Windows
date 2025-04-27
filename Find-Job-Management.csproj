@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF95293F-108C-4B21-A746-6B7F5179F780}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Find_Job_Management</RootNamespace>
+    <AssemblyName>Find-Job-Management</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.Charts.WinForms.1.1.0\lib\net48\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI, Version=1.9.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Project-Find-Job-Application\FindJobApplication\bin\Debug\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\Database.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanyHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanyHome.Designer.cs">
+      <DependentUpon>frmCompanyHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanyOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanyOverview.Designer.cs">
+      <DependentUpon>frmCompanyOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanyProfileInformationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanyProfileInformationEdit.Designer.cs">
+      <DependentUpon>frmCompanyProfileInformationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanyJobEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanyJobEdit.Designer.cs">
+      <DependentUpon>frmCompanyJobEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanyProfileTop3Reasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanyProfileTop3Reasons.Designer.cs">
+      <DependentUpon>frmCompanyProfileTop3Reasons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanyScheduleAnInterview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanyScheduleAnInterview.Designer.cs">
+      <DependentUpon>frmCompanyScheduleAnInterview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCompanySeeCV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCompanySeeCV.Designer.cs">
+      <DependentUpon>frmCompanySeeCV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmPostSocial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPostSocial.Designer.cs">
+      <DependentUpon>frmPostSocial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmSendMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmSendMail.Designer.cs">
+      <DependentUpon>frmSendMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmSignUp.Designer.cs">
+      <DependentUpon>frmSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmSignUpCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmSignUpCompany.Designer.cs">
+      <DependentUpon>frmSignUpCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileEducationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileEducationEdit.Designer.cs">
+      <DependentUpon>frmUserProfileEducationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileInformationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileInformationEdit.Designer.cs">
+      <DependentUpon>frmUserProfileInformationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileIntroduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileIntroduction.Designer.cs">
+      <DependentUpon>frmUserProfileIntroduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserProfilePersonalProjectEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserProfilePersonalProjectEdit.Designer.cs">
+      <DependentUpon>frmUserProfilePersonalProjectEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileSkillsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileSkillsEdit.Designer.cs">
+      <DependentUpon>frmUserProfileSkillsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileWorkExperienceEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserProfileWorkExperienceEdit.Designer.cs">
+      <DependentUpon>frmUserProfileWorkExperienceEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmUserSubmitCV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmUserSubmitCV.Designer.cs">
+      <DependentUpon>frmUserSubmitCV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompany.Designer.cs">
+      <DependentUpon>UCCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyCVFollowing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyCVFollowing.Designer.cs">
+      <DependentUpon>UCCompanyCVFollowing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyHome.Designer.cs">
+      <DependentUpon>UCCompanyHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyJob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyJob.Designer.cs">
+      <DependentUpon>UCCompanyJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyJobRecruitment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyJobRecruitment.Designer.cs">
+      <DependentUpon>UCCompanyJobRecruitment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyListCVFollowing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyListCVFollowing.Designer.cs">
+      <DependentUpon>UCCompanyListCVFollowing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyListPeopleApply.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyListPeopleApply.Designer.cs">
+      <DependentUpon>UCCompanyListPeopleApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyPeopleApplied.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyPeopleApplied.Designer.cs">
+      <DependentUpon>UCCompanyPeopleApplied.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanyProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanyProfile.Designer.cs">
+      <DependentUpon>UCCompanyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanySeeProfilePeople.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanySeeProfilePeople.Designer.cs">
+      <DependentUpon>UCCompanySeeProfilePeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCCompanySubMenuRight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCCompanySubMenuRight.Designer.cs">
+      <DependentUpon>UCCompanySubMenuRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCHome.Designer.cs">
+      <DependentUpon>UCHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCJob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCJob.Designer.cs">
+      <DependentUpon>UCJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCJobApply.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCJobApply.Designer.cs">
+      <DependentUpon>UCJobApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCJobInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCJobInformation.Designer.cs">
+      <DependentUpon>UCJobInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCMail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCMail.Designer.cs">
+      <DependentUpon>UCMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCMailDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCMailDetail.Designer.cs">
+      <DependentUpon>UCMailDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCMailRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCMailRow.Designer.cs">
+      <DependentUpon>UCMailRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCMain.Designer.cs">
+      <DependentUpon>UCMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCMyJob.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCMyJob.Designer.cs">
+      <DependentUpon>UCMyJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCProfile.Designer.cs">
+      <DependentUpon>UCProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCSetting.Designer.cs">
+      <DependentUpon>UCSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCSkillTag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCSkillTag.Designer.cs">
+      <DependentUpon>UCSkillTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCSocial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCSocial.Designer.cs">
+      <DependentUpon>UCSocial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCSocialHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCSocialHistory.Designer.cs">
+      <DependentUpon>UCSocialHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCSocialHistoryRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCSocialHistoryRow.Designer.cs">
+      <DependentUpon>UCSocialHistoryRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCSocialPost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCSocialPost.Designer.cs">
+      <DependentUpon>UCSocialPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCTopCompany.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCTopCompany.Designer.cs">
+      <DependentUpon>UCTopCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCTopTrending.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCTopTrending.Designer.cs">
+      <DependentUpon>UCTopTrending.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCUCUserProfileEducationAndWorkExperience.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCUCUserProfileEducationAndWorkExperience.Designer.cs">
+      <DependentUpon>UCUCUserProfileEducationAndWorkExperience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCUserCompanyFollwing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCUserCompanyFollwing.Designer.cs">
+      <DependentUpon>UCUserCompanyFollwing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCUserListCompanyFollowing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCUserListCompanyFollowing.Designer.cs">
+      <DependentUpon>UCUserListCompanyFollowing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCUserProfileProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCUserProfileProject.Designer.cs">
+      <DependentUpon>UCUserProfileProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UCUserSubMenuRight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UCUserSubMenuRight.Designer.cs">
+      <DependentUpon>UCUserSubMenuRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\JobApplyDetail.cs" />
+    <Compile Include="Model\CompanyProfile.cs" />
+    <Compile Include="Model\AccountRole.cs" />
+    <Compile Include="Model\JobPost.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Mail.cs" />
+    <Compile Include="Model\Session.cs" />
+    <Compile Include="Model\Skill.cs" />
+    <Compile Include="Model\SocialPost.cs" />
+    <Compile Include="Model\UserEducation.cs" />
+    <Compile Include="Model\UserPersonalProject.cs" />
+    <Compile Include="Model\UserProfile.cs" />
+    <Compile Include="Model\UserSkill.cs" />
+    <Compile Include="Model\UserWorkExperience.cs" />
+    <Compile Include="Model\YearExperience.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\DialogBox.Designer.cs">
+      <DependentUpon>DialogBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\frmCompanyHome.resx">
+      <DependentUpon>frmCompanyHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCompanyOverview.resx">
+      <DependentUpon>frmCompanyOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCompanyProfileInformationEdit.resx">
+      <DependentUpon>frmCompanyProfileInformationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCompanyJobEdit.resx">
+      <DependentUpon>frmCompanyJobEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCompanyProfileTop3Reasons.resx">
+      <DependentUpon>frmCompanyProfileTop3Reasons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCompanyScheduleAnInterview.resx">
+      <DependentUpon>frmCompanyScheduleAnInterview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCompanySeeCV.resx">
+      <DependentUpon>frmCompanySeeCV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmPostSocial.resx">
+      <DependentUpon>frmPostSocial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmSendMail.resx">
+      <DependentUpon>frmSendMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmSignUp.resx">
+      <DependentUpon>frmSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmSignUpCompany.resx">
+      <DependentUpon>frmSignUpCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserProfileEducationEdit.resx">
+      <DependentUpon>frmUserProfileEducationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserProfileInformationEdit.resx">
+      <DependentUpon>frmUserProfileInformationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserProfileIntroduction.resx">
+      <DependentUpon>frmUserProfileIntroduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserProfilePersonalProjectEdit.resx">
+      <DependentUpon>frmUserProfilePersonalProjectEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserProfileSkillsEdit.resx">
+      <DependentUpon>frmUserProfileSkillsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserProfileWorkExperienceEdit.resx">
+      <DependentUpon>frmUserProfileWorkExperienceEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmUserSubmitCV.resx">
+      <DependentUpon>frmUserSubmitCV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompany.resx">
+      <DependentUpon>UCCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyCVFollowing.resx">
+      <DependentUpon>UCCompanyCVFollowing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyHome.resx">
+      <DependentUpon>UCCompanyHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyJob.resx">
+      <DependentUpon>UCCompanyJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyJobRecruitment.resx">
+      <DependentUpon>UCCompanyJobRecruitment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyListCVFollowing.resx">
+      <DependentUpon>UCCompanyListCVFollowing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyListPeopleApply.resx">
+      <DependentUpon>UCCompanyListPeopleApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyPeopleApplied.resx">
+      <DependentUpon>UCCompanyPeopleApplied.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanyProfile.resx">
+      <DependentUpon>UCCompanyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanySeeProfilePeople.resx">
+      <DependentUpon>UCCompanySeeProfilePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCCompanySubMenuRight.resx">
+      <DependentUpon>UCCompanySubMenuRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCHome.resx">
+      <DependentUpon>UCHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCJob.resx">
+      <DependentUpon>UCJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCJobApply.resx">
+      <DependentUpon>UCJobApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCJobInformation.resx">
+      <DependentUpon>UCJobInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCMail.resx">
+      <DependentUpon>UCMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCMailDetail.resx">
+      <DependentUpon>UCMailDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCMailRow.resx">
+      <DependentUpon>UCMailRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCMain.resx">
+      <DependentUpon>UCMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCMyJob.resx">
+      <DependentUpon>UCMyJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCProfile.resx">
+      <DependentUpon>UCProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCSetting.resx">
+      <DependentUpon>UCSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCSkillTag.resx">
+      <DependentUpon>UCSkillTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCSocial.resx">
+      <DependentUpon>UCSocial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCSocialHistory.resx">
+      <DependentUpon>UCSocialHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCSocialHistoryRow.resx">
+      <DependentUpon>UCSocialHistoryRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCSocialPost.resx">
+      <DependentUpon>UCSocialPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCTopCompany.resx">
+      <DependentUpon>UCTopCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCTopTrending.resx">
+      <DependentUpon>UCTopTrending.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCUCUserProfileEducationAndWorkExperience.resx">
+      <DependentUpon>UCUCUserProfileEducationAndWorkExperience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCUserCompanyFollwing.resx">
+      <DependentUpon>UCUserCompanyFollwing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCUserListCompanyFollowing.resx">
+      <DependentUpon>UCUserListCompanyFollowing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCUserProfileProject.resx">
+      <DependentUpon>UCUserProfileProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UCUserSubMenuRight.resx">
+      <DependentUpon>UCUserSubMenuRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Utils\DialogBox.resx">
+      <DependentUpon>DialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BLL\" />
+    <Folder Include="DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert-error.512x512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert-success.512x512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alert-warning.512x480.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-sign-to-navigate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-sign-to-navigate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-down-sign-to-navigate2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\award.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackIcon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\birthday-cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\building.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cameraEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\certificate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company_birthday-cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company_mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company_people_size.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company_phone-call.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Company_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-science.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default-avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emailicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emailWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enterprise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expired.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeDetail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Follow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fpt_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart-regular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart-regular1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart-solid1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\job.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jobCount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\job-search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\like1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location-dot-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mail_Calender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mail_FromTo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mail_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maps-and-flags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meta-Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nameJob.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nothing.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office-building.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper-plane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal-profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal-profile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\post.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\robot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scholarship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settingsSubmenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-out-option.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign-out-option-White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\signup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sigup2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Social.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Social_Mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\social1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\socialWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start-date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\start-date1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\status.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suitcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\technology.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timePost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trendingwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typeWork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unFollow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VanPhong.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vanphong2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xoa.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
